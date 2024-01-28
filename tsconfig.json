@@ -10,6 +10,11 @@
 		"esModuleInterop": true,
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
-		"noUnusedLocals": true
-	}
+		"noUnusedLocals": true,
+		"resolveJsonModule": true,
+		"paths": {
+			// "src/*": ["./src/*"],
+			"src": ["./src"]
+		  },
+		},
 }
