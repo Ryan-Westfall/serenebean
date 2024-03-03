@@ -1,9 +1,9 @@
 import {z} from 'zod'
-import { useCurrentFrame} from 'remotion'
+import { OffthreadVideo, useCurrentFrame} from 'remotion'
 import {interpolate} from 'remotion'
 import {Audio} from 'remotion'
 import {Img, Sequence} from 'remotion'
-import { AbsoluteFill, Video, staticFile} from "remotion";
+import { AbsoluteFill, staticFile} from "remotion";
 import { Title } from "../Assets/Title";
 import images from '../Data/image-paths.json';
 
@@ -24,34 +24,30 @@ export const MyComposition: React.FunctionComponent<z.infer<typeof myCompSchema>
         backgroundColor: "red",
       }}
     >
-        <Audio loop volume={.2} playbackRate={1.1} src={musicSource} placeholder={undefined} />
-        <Sequence durationInFrames={100}>
-            <Video muted src={videoSource} style={{right: '-900px',  height:"100%", position: 'absolute'}} endAt={100}/>
-            <Title titleText="Which apartment would you choose? 🤔" titleColor="white" placement={450} fontSize={130}/>
+        <Audio loop volume={.2} src={musicSource} placeholder={undefined} />
+        <Sequence durationInFrames={80}>
+            <OffthreadVideo muted src={videoSource} style={{right: '-900px',  height:"100%", position: 'absolute'}} endAt={100}/>
+            <Title titleText=" Which Axolotl would you choose? 🤔" titleColor="white" placement={450} fontSize={150}/>
         </Sequence> 
-        <Sequence from={100} durationInFrames={101}>
+        <Sequence from={80} durationInFrames={81}>
             <Img placeholder='' src={staticFile(`images/${images[1]}`)} style={{right: interpolate(useCurrentFrame(), [150,250], [-300, -360]),  height:"100%", position: 'absolute'}}/>
             <Title titleText="1" titleColor="white" placement={650} fontSize={200}/>
         </Sequence>
-        <Sequence from={200} durationInFrames={101}>
-            <Img placeholder='' src={staticFile(`images/${images[2]}`)} style={{right: interpolate(useCurrentFrame(), [250,350], [-420, -470]),  height:"100%", position: 'absolute'}}/>
+        <Sequence from={160} durationInFrames={81}>
+            <Img placeholder='' src={staticFile(`images/${images[2]}`)} style={{right: interpolate(useCurrentFrame(), [250,350], [-470, -500]),  height:"100%", position: 'absolute'}}/>
             <Title titleText="2" titleColor="white" placement={650}fontSize={200}/>
         </Sequence>
-        <Sequence from={300} durationInFrames={101}>
+        <Sequence from={240} durationInFrames={81}> 
             <Img placeholder='' src={staticFile(`images/${images[3]}`)}style={{right: interpolate(useCurrentFrame(), [350,450], [-460, -400]),  height:"100%", position: 'absolute'}}/>
             <Title titleText="3" titleColor="white" placement={650}fontSize={200}/>
         </Sequence>
-        <Sequence from={400} durationInFrames={101}>
+        <Sequence from={320} durationInFrames={81}>
             <Img placeholder='' src={staticFile(`images/${images[4]}`)}style={{right: interpolate(useCurrentFrame(), [450,550], [-410, -460]),  height:"100%", position: 'absolute'}}/>
             <Title titleText="4" titleColor="white" placement={650}fontSize={200}/>
         </Sequence>
-        <Sequence from={500} durationInFrames={101}>
+        <Sequence from={400} durationInFrames={81}>
             <Img placeholder='' src={staticFile(`images/${images[5]}`)}style={{right: interpolate(useCurrentFrame(), [550,650], [-470, -440]),  height:"100%", position: 'absolute'}}/>
             <Title titleText="5" titleColor="white" placement={650}fontSize={200}/>
-        </Sequence>
-        <Sequence from={595}>
-            <Video muted src={videoSource} style={{right: '-900px',  height:"100%", position: 'absolute'}}/>
-            <Title titleText="Like and share which one was your favorite!!!" titleColor="white" placement={350} fontSize={150}/>
         </Sequence>
     </AbsoluteFill>
   );
