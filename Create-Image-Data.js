@@ -11,7 +11,8 @@ const newImageData = {
     2: imagePaths[1],
     3: imagePaths[2],
     4: imagePaths[3],
-    5: imagePaths[4]
+    5: imagePaths[4],
+    6: imagePaths[5],
 }
 
 const jsonData = JSON.stringify(newImageData)

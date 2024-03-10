@@ -8,11 +8,11 @@ const title: React.CSSProperties = {
 	textAlign: 'center',
 	position: 'absolute',
 	width: '100%',
-	stroke: 'black',
-	WebkitTextStroke: '7px black',
 	paddingRight: '100px',
 	paddingLeft: '100px',
-	lineHeight: '180px',
+	lineHeight: '100px',
+	letterSpacing: '3px',
+	wordSpacing: '1000px'
 };
 
 const word: React.CSSProperties = {
@@ -33,15 +33,15 @@ export const Title: React.FC<{
 	const words = titleText.split(' ');
 
 	return (
-		<h1 style={{...title, top: placement, fontSize}}>
+		<h1 style={{...title, top: placement, fontSize, fontFamily: "avenir, monospace"}}>
 			{words.map((t, i) => {
-				const delay = i * 3;
+				const delay = i * 5
 
 				const scale = spring({
 					fps: videoConfig.fps,
 					frame: frame - delay,
 					config: {
-						damping: 200,
+						damping: 150,
 					},
 				});
 

@@ -1,15 +1,24 @@
 {
 	"videos": [
-		"video1.mp4",
-		"video3.mp4",
-		"video4.mp4",
-		"video5.mp4",
-		"video6.mp4",
-		"video7.mp4",
-		"video8.mp4",
-		"video9.mp4",
-		"video10.mp4",
-		"video11.mp4",
-		"video12.mp4"
+		"animal1.mp4",
+		"animal2.mp4",
+		"animal3.mp4",
+		"animal4.mp4",
+		"animal5.mp4",
+		"animal6.mp4",
+		"animal7.mp4",
+		"animal8.mp4",
+		"animal9.mp4",
+		"animal10.mp4",
+		"house1.mp4",
+		"house2.mp4",
+		"house3.mp4",
+		"house4.mp4",
+		"house5.mp4",
+		"house6.mp4",
+		"house7.mp4",
+		"house8.mp4",
+		"house9.mp4",
+		"house10.mp4"
 	]
 }

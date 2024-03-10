@@ -21,7 +21,7 @@ export const RemotionRoot: React.FC = () => {
 			<Composition
 				id={`Which-Image-${images[1].substring(0, images[1].length - 4)}`}
 				component={MyComposition}
-				durationInFrames={481}
+				durationInFrames={561}
 				fps={30}
 				width={1080}
 				height={1920}
