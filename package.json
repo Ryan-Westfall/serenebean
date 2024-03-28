@@ -13,6 +13,9 @@
   "dependencies": {
     "@remotion/cli": "4.0.84",
     "@remotion/zod-types": "4.0.84",
+    "freezer-midjourney-api": "^4.0.6",
+    "grapheme-splitter": "^1.0.4",
+    "midjourney": "^4.3.17",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "remotion": "4.0.84",

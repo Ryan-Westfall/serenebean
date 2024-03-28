@@ -1,11 +1,11 @@
 import {z} from 'zod'
 import { OffthreadVideo, useCurrentFrame} from 'remotion'
 import {interpolate} from 'remotion'
-import {Audio} from 'remotion'
 import {Img, Sequence} from 'remotion'
 import { AbsoluteFill, staticFile} from "remotion";
 import { Title } from "../Assets/Title";
 import images from '../Data/image-paths.json';
+import { Typerighter } from '../Assets/Typerighter'
 
 
 export const myCompSchema = z.object({
@@ -25,8 +25,9 @@ export const MyComposition: React.FunctionComponent<z.infer<typeof myCompSchema>
       }}
     >
         {/* <Audio loop volume={.2} src={musicSource} placeholder={undefined} /> */}
-        <Sequence durationInFrames={80}>
+        <Sequence durationInFrames={81}>
             <OffthreadVideo muted src={videoSource} endAt={100}/>
+            <Typerighter />
             <Title titleText="which cute animal would you choose?" titleColor="white" placement={450} fontSize={80}/>
             <Title titleText="🐣🐻‍❄️🐙🐨" titleColor="white" placement={670} fontSize={80}/>
         </Sequence> 
