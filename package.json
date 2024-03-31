@@ -13,6 +13,7 @@
   "dependencies": {
     "@remotion/cli": "4.0.84",
     "@remotion/zod-types": "4.0.84",
+    "axios": "^1.6.8",
     "freezer-midjourney-api": "^4.0.6",
     "grapheme-splitter": "^1.0.4",
     "midjourney": "^4.3.17",
