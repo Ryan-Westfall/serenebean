@@ -6,6 +6,7 @@
     "start": "remotion studio",
     "build": "npx remotion render",
     "upgrade": "remotion upgrade",
+    "imagine": "npx tsx imagine.ts",
     "test": "eslint src --ext ts,tsx,js,jsx && tsc"
   },
   "repository": {},

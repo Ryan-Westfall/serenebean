@@ -28,7 +28,7 @@ async function downloadFile(fileUrl: string, outputPath: string): Promise<void> 
 
 async function generateImage(prompt: string, client: Midjourney) {
      const Imagine = await client.Imagine(
-      "Realistic, " + prompt,
+      prompt + " --ar 2:3",
       (uri: string, progress: string) => {
         console.log("loading", uri, "progress", progress);
       }
@@ -39,13 +39,14 @@ async function generateImage(prompt: string, client: Midjourney) {
       return;
     }
 
+    console.log('Upscaling 1')
     const U1CustomID = Imagine.options?.find((o) => o.label === "U1")?.custom;
     if (!U1CustomID) {
       console.log("no U1");
       return;
     }
 
-    const upscaledImage = await client.Custom({
+    const upscaledImage1 = await client.Custom({
     msgId: <string>Imagine.id,
     flags: Imagine.flags,
     customId: U1CustomID,
@@ -54,12 +55,87 @@ async function generateImage(prompt: string, client: Midjourney) {
     },
   });
 
-  if (!upscaledImage) {
+  if (!upscaledImage1) {
     console.log("no Upscale");
     return;
   }
 
-  downloadFile(upscaledImage.uri, `./generated-images/image${upscaledImage.id}.png`)
+  await downloadFile(upscaledImage1.uri, `./generated-images/image${upscaledImage1.id}.png`)
+    .then(() => console.log('Download completed successfully.'))
+    .catch((error) => console.error('Download failed:', error));
+
+    console.log('Upscaling 2')
+    const U2CustomID = Imagine.options?.find((o) => o.label === "U2")?.custom;
+    if (!U2CustomID) {
+      console.log("no U1");
+      return;
+    }
+
+    const upscaledImage2 = await client.Custom({
+    msgId: <string>Imagine.id,
+    flags: Imagine.flags,
+    customId: U2CustomID,
+    loading: (uri: string, progress: string) => {
+      console.log("loading", uri, "progress", progress);
+    },
+  });
+
+  if (!upscaledImage2) {
+    console.log("no Upscale");
+    return;
+  }
+
+  await downloadFile(upscaledImage2.uri, `./generated-images/image${upscaledImage2.id}.png`)
+    .then(() => console.log('Download completed successfully.'))
+    .catch((error) => console.error('Download failed:', error));
+
+    console.log('Upscaling 3')
+    const U3CustomID = Imagine.options?.find((o) => o.label === "U3")?.custom;
+    if (!U3CustomID) {
+      console.log("no U1");
+      return;
+    }
+
+    const upscaledImage3 = await client.Custom({
+    msgId: <string>Imagine.id,
+    flags: Imagine.flags,
+    customId: U3CustomID,
+    loading: (uri: string, progress: string) => {
+      console.log("loading", uri, "progress", progress);
+    },
+  });
+
+  if (!upscaledImage3) {
+    console.log("no Upscale");
+    return;
+  }
+
+  await downloadFile(upscaledImage3.uri, `./generated-images/image${upscaledImage3.id}.png`)
+    .then(() => console.log('Download completed successfully.'))
+    .catch((error) => console.error('Download failed:', error));
+
+    console.log('Upscaling 4') 
+    const U4CustomID = Imagine.options?.find((o) => o.label === "U4")?.custom;
+    if (!U4CustomID) {
+      console.log("no U1");
+      return;
+    }
+
+    const upscaledImage4 = await client.Custom({
+    msgId: <string>Imagine.id,
+    flags: Imagine.flags,
+    customId: U4CustomID,
+    loading: (uri: string, progress: string) => {
+      console.log("loading", uri, "progress", progress);
+    },
+  });
+
+  if (!upscaledImage4) {
+    console.log("no Upscale");
+    return;
+  }
+
+  await downloadFile(upscaledImage4.uri, `./generated-images/image${upscaledImage4.id}.png`)
     .then(() => console.log('Download completed successfully.'))
     .catch((error) => console.error('Download failed:', error));
 }

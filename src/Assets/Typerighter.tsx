@@ -17,16 +17,17 @@ const textCss = {
     textAlign: 'center',
     position: 'absolute',
     width: '100%',
-    paddingRight: '100px',
-    paddingLeft: '100px',
+    paddingRight: '200px',
+    paddingLeft: '200px',
+    marginTop: "600px",
     lineHeight: '100px',
     letterSpacing: '3px',
-    wordSpacing: '1000px'
+    color: 'white',
 };
 
-export const Typerighter = () => {
+export const Typerighter = ({titleText}) => {
     const frame = useCurrentFrame();
-    const text = 'Typewriter 🐣🐻‍❄️🐙🐨 Effect';
+    const text = titleText;
 
     // Initialize GraphemeSplitter
     const splitter = new GraphemeSplitter();
@@ -35,7 +36,7 @@ export const Typerighter = () => {
     const textArray = splitter.splitGraphemes(text);
 
     // A new character (grapheme cluster) every 3 frames
-    const charsShown = Math.floor(frame / 3);
+    const charsShown = Math.floor(frame * 3 / 5);
     const textToShow = textArray.slice(0, charsShown).join('');
     // Show the cursor while the text is typing, then start blinking
     const cursorShown =
@@ -46,7 +47,7 @@ export const Typerighter = () => {
             style={{
                 ...textCss,
                 fontFamily: 'sans-serif',
-                fontSize: 50,
+                fontSize: 60,
             }}
         >
             {textToShow}

@@ -6,12 +6,9 @@ const title: React.CSSProperties = {
 	fontWeight: 'bold',
 	textAlign: 'center',
 	position: 'absolute',
-	width: '100%',
-	paddingRight: '100px',
-	paddingLeft: '100px',
+	marginLeft: "46%",
 	lineHeight: '100px',
-	letterSpacing: '3px',
-	wordSpacing: '1000px'
+	letterSpacing: '3px'
 };
 
 const word: React.CSSProperties = {
@@ -51,6 +48,7 @@ export const Title: React.FC<{
 							...word,
 							color: titleColor,
 							transform: `scale(${scale})`,
+							backgroundColor: "#d6b7a3", paddingLeft: "25px", paddingRight: "25px", paddingTop:"20px", paddingBottom: "20px", borderRadius: "20px"
 						}}
 					>
 						{t}
