@@ -1,35 +1,36 @@
-import React from 'react';
 import {spring, useCurrentFrame, useVideoConfig} from 'remotion';
+import { loadFont } from "@remotion/google-fonts/Jua";
+
+const { fontFamily } = loadFont();
 
 const title: React.CSSProperties = {
-	fontFamily: 'SF Pro Text, Helvetica, Arial, sans-serif',
 	fontWeight: 'bold',
 	textAlign: 'center',
 	position: 'absolute',
 	marginLeft: "46%",
 	lineHeight: '100px',
-	letterSpacing: '3px'
 };
 
 const word: React.CSSProperties = {
-	marginLeft: 10,
-	marginRight: 10,
+	marginRight: 3,
 	display: 'inline-block',
 };
 
 export const Title: React.FC<{
 	titleText: string;
 	titleColor: string;
-	placement: number;
+	placementVertical: number;
+	placementHorizontal?: number;
+	backgroundColor?: string;
 	fontSize?: number;
-}> = ({titleText, titleColor, placement, fontSize = 100}) => {
+}> = ({titleText, titleColor, placementVertical, placementHorizontal = 0, fontSize = 100, backgroundColor = "black"}) => {
 	const videoConfig = useVideoConfig();
 	const frame = useCurrentFrame();
 
 	const words = titleText.split(' ');
 
 	return (
-		<h1 style={{...title, top: placement, fontSize, fontFamily: "avenir, monospace"}}>
+		<h1 style={{...title, top: placementVertical, left: placementHorizontal, fontSize, fontFamily: fontFamily}}>
 			{words.map((t, i) => {
 				const delay = i * 5
 
@@ -48,7 +49,7 @@ export const Title: React.FC<{
 							...word,
 							color: titleColor,
 							transform: `scale(${scale})`,
-							backgroundColor: "#d6b7a3", paddingLeft: "25px", paddingRight: "25px", paddingTop:"20px", paddingBottom: "20px", borderRadius: "20px"
+							backgroundColor, paddingLeft: "25px", paddingRight: "25px", paddingTop:"20px", paddingBottom: "20px", borderRadius: "20px"
 						}}
 					>
 						{t}
